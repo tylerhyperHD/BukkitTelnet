@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import me.totalfreedom.bukkittelnet.api.TelnetRequestDataTagsEvent;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -14,8 +14,8 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class PlayerEventListener implements Listener
 {
@@ -91,12 +91,12 @@ public class PlayerEventListener implements Listener
                 info.put(playerTagsEntry.getKey(), value != null ? value.toString() : "null");
             }
 
-            players.add(info);
+            players.put(info);
         }
 
         final JSONObject response = new JSONObject();
         response.put("players", players);
 
-        return response.toJSONString();
+        return response.toString();
     }
 }

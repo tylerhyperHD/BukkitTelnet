@@ -1,6 +1,7 @@
 package me.totalfreedom.bukkittelnet.session;
 
 import java.util.Set;
+import java.util.UUID;
 import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.Server;
@@ -32,6 +33,19 @@ public class SessionCommandSender implements ConsoleCommandSender
     public void sendMessage(String[] messages)
     {
         for (String message : messages)
+        {
+            sendMessage(message);
+        }
+    }
+
+    @Override
+    public void sendMessage(UUID uuid, String s) {
+        session.writeRawLine(s);
+    }
+
+    @Override
+    public void sendMessage(UUID uuid, String... strings) {
+        for (String message : strings)
         {
             sendMessage(message);
         }
@@ -155,6 +169,11 @@ public class SessionCommandSender implements ConsoleCommandSender
     public void sendRawMessage(String string)
     {
         session.writeRawLine(string);
+    }
+
+    @Override
+    public void sendRawMessage(UUID uuid, String s) {
+
     }
 
     @Override

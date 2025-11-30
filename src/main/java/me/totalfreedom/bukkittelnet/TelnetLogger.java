@@ -1,7 +1,7 @@
 package me.totalfreedom.bukkittelnet;
 
 import java.util.logging.Logger;
-import org.apache.commons.lang.exception.ExceptionUtils;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 
 public final class TelnetLogger
 {
