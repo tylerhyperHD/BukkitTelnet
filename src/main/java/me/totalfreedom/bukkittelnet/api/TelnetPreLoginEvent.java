@@ -15,6 +15,7 @@ public class TelnetPreLoginEvent extends TelnetEvent implements Cancellable
 
     public TelnetPreLoginEvent(String ip, String name, boolean bypassPassword)
     {
+        super(true); // This event is fired asynchronously from the ClientSession thread
         this.ip = ip;
         this.name = name;
         this.bypassPassword = bypassPassword;
